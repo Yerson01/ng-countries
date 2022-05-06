@@ -1,0 +1,25 @@
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h2>Buscar por Capital</h2>
+  <hr />
+
+  <div class="row">
+    <div class="col">
+      <app-country-input
+        placeholder="Buscar por capital..."
+        (onEnter)="searchByCity($event)"
+      ></app-country-input>
+    </div>
+  </div>
+
+  <hr />
+</div>
+
+<div *ngIf="hasError" class="alert alert-danger">
+  No se encontr&oacute; nada con el termino {{ city }}
+</div>
+
+<div *ngIf="!hasError || countries.length > 0" class="row">
+  <div class="col">
+    <app-countries-table [countries]="countries"></app-countries-table>
+  </div>
+</div>
